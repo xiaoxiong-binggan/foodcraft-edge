@@ -1,8 +1,7 @@
-// 移除无效的 register 导入，使用原生 Service Worker 注册逻辑
+// 原生Service Worker注册，无需vite-plugin-pwa的register
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      // 原生注册逻辑，无需 vite-plugin-pwa 的 register 方法
       const registration = await navigator.serviceWorker.register('/service-worker.js', {
         scope: '/'
       });
@@ -13,5 +12,5 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// 空导出，确保 TS 识别为模块
+// 空导出，确保TS识别为模块
 export {};
