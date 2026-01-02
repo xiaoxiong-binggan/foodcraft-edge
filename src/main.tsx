@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
-import * as serviceWorkerRegistration from './service-worker-registration.ts';
+// 只需导入注册文件，无需解构 register（避免报错）
+import './service-worker-registration.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -9,5 +10,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   </React.StrictMode>
 );
 
-// 注册Service Worker，实现PWA离线能力
-serviceWorkerRegistration.register();
+// 移除对 serviceWorkerRegistration.register() 的调用（已在注册文件内部自动执行）
