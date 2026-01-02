@@ -1,4 +1,4 @@
-// 定义 recipe 属性的类型接口，明确接收的属性结构
+// 定义属性类型
 interface RecipeCardProps {
   recipe: {
     id: string;
@@ -9,10 +9,10 @@ interface RecipeCardProps {
     isOffline: boolean;
     steps: string[];
   };
-  key?: string; // 可选接收 key 属性
+  key?: string;
 }
 
-// 接收 recipe 属性并声明类型，解决 TS2322 报错
+// 接收并使用属性
 function RecipeCard({ recipe }: RecipeCardProps) {
   return (
     <div style={{ border: "1px solid #eee", padding: "16px", margin: "8px" }}>
@@ -24,5 +24,4 @@ function RecipeCard({ recipe }: RecipeCardProps) {
   );
 }
 
-// 关键：添加默认导出，让 TS 识别为模块
 export default RecipeCard;
