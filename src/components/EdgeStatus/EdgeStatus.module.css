@@ -1,0 +1,28 @@
+.edgeStatus {
+  padding: 4px 12px;
+  background-color: #f5f5f5;
+  border-radius: 16px;
+  font-size: 12px;
+  color: #333;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 8px;
+}
+
+.edgeStatus.offline {
+  background-color: #fff3f3;
+  color: #f87171;
+}
+
+.label {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.info {
+  color: #666;
+}
+
+.edgeStatus.offline .info {
+  color: #f87171;
+}
