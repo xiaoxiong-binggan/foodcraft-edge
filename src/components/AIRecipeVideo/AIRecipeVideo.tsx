@@ -1,16 +1,13 @@
-import { useState } from 'react'; // 仅导入需要的 useState，删除冗余 React 默认导入
+import { useState } from 'react';
 import styles from './AIRecipeVideo.module.css';
 import { useAIRecipe } from '@/hooks/useAIRecipe';
 import OfflineTip from '../OfflineTip/OfflineTip';
 
-// AI菜谱视频生成组件（演示版，无API依赖）
 const AIRecipeVideo: React.FC = () => {
   const [recipeText, setRecipeText] = useState<string>('番茄炒蛋，简单易做');
   const [videoStyle, setVideoStyle] = useState<string>('动漫');
-  // 解构钩子导出的所有属性（现在属性齐全，无报错）
   const { loading, recipe, error, edgeNode, generateAIRecipe } = useAIRecipe();
 
-  // 生成演示视频
   const handleGenerate = async () => {
     await generateAIRecipe(recipeText, 'demo_user_001');
   };
