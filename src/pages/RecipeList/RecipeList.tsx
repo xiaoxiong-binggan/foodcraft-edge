@@ -1,6 +1,6 @@
 // src/pages/RecipeList/RecipeList.tsx
 import React from 'react';
-import styles from './RecipeList.module.css';
+import styles from './RecipeList.module.css'; // 确保正确导入样式
 import RecipeCard from '@/components/Common/RecipeCard';
 import { mockRecipes } from '@/utils/mockData';
 import { Link } from 'react-router-dom';
