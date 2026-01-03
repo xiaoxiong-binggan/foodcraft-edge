@@ -1,3 +1,4 @@
+// vite.config.ts
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -41,8 +42,12 @@ export default defineConfig(({ mode }) => {
           ]
         },
         workbox: {
-          // 静态资源预缓存
+          // ✅ 关键修复：排除 CSS Modules 文件，防止 PWA 插件注入 ?used 导致构建失败
+          globIgnores: ['**/*.module.css'],
+
+          // 静态资源预缓存（不再包含 .module.css）
           globPatterns: ['**/*.{html,js,css,ico,png,svg,jpg,jpeg,gif,mp3}'],
+
           // 运行时缓存策略（适配 ESA 边缘 API）
           runtimeCaching: [
             {
