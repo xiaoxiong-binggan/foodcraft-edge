@@ -42,12 +42,10 @@ export default defineConfig(({ mode }) => {
           ]
         },
         workbox: {
-          // ✅ 关键修复：排除 CSS Modules 文件，防止 PWA 插件注入 ?used 导致构建失败
+          // ✅ 关键修复：排除 CSS Modules 文件，防止构建时解析 ?used 失败
           globIgnores: ['**/*.module.css'],
-
-          // 静态资源预缓存（不再包含 .module.css）
+          // 静态资源预缓存（不包含 .module.css）
           globPatterns: ['**/*.{html,js,css,ico,png,svg,jpg,jpeg,gif,mp3}'],
-
           // 运行时缓存策略（适配 ESA 边缘 API）
           runtimeCaching: [
             {
@@ -69,10 +67,8 @@ export default defineConfig(({ mode }) => {
               }
             }
           ]
-        },
-        // 自定义 Service Worker 入口（可选，用于高级控制）
-        srcDir: 'src',
-        filename: 'service-worker.ts'
+        }
+        // 🔥 注意：已移除 srcDir 和 filename，使用默认 Service Worker
       })
     ],
     resolve: {
