@@ -1,25 +1,23 @@
-import React from 'react'
-import { Card, Typography } from 'antd'
-import { TeamOutlined } from '@ant-design/icons'
-
-const { Title, Paragraph } = Typography
+// src/pages/CollabSpacePage.tsx
+import React from 'react';
+import styles from './CollabSpacePage.module.css';
 
 const CollabSpacePage: React.FC = () => {
   return (
-    <div style={{ padding: 24 }}>
-      <Card>
-        <Title level={2}>
-          <TeamOutlined /> 实时协作美食空间
-        </Title>
-        <Paragraph>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h2 className={styles.title}>
+          👥 实时协作美食空间
+        </h2>
+        <p className={styles.mainText}>
           正在开发中... 敬请期待！
-        </Paragraph>
-        <Paragraph type="secondary">
+        </p>
+        <p className={styles.secondary}>
           功能：多人实时编辑菜谱
-        </Paragraph>
-      </Card>
+        </p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default CollabSpacePage
+export default CollabSpacePage;
