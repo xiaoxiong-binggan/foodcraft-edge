@@ -1,103 +1,73 @@
-/* src/components/HotRecipeCarousel/HotRecipeCarousel.module.css */
-.carousel {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto 40px;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-}
+// src/components/HotRecipeCarousel/HotRecipeCarousel.tsx
+import React, { useState, useEffect } from 'react';
+import styles from './HotRecipeCarousel.module.css';
+import { hotRecipes } from '@/utils/mockData';
+import { Link } from 'react-router-dom';
 
-.slide {
-  display: none;
-  width: 100%;
-  height: 360px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
+const HotRecipeCarousel: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-.slide.active {
-  display: block;
-}
+  // 自动轮播：每 4 秒切换
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % hotRecipes.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
-.content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  padding: 24px;
-  color: white;
-}
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
 
-.content h3 {
-  font-size: 24px;
-  margin: 0 0 8px;
-  font-weight: 700;
-}
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? hotRecipes.length - 1 : prev - 1));
+  };
 
-.content p {
-  margin: 0 0 8px;
-  opacity: 0.9;
-}
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % hotRecipes.length);
+  };
 
-.heat {
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
+  if (hotRecipes.length === 0) return null;
 
-/* 控制按钮 */
-.controls {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: background 0.2s;
-}
+  const currentRecipe = hotRecipes[currentIndex];
 
-.controls:hover {
-  background: white;
-}
+  return (
+    <div className={styles.carousel}>
+      {/* 当前轮播项 */}
+      <div
+        className={`${styles.slide} ${styles.active}`}
+        style={{ backgroundImage: `url(${currentRecipe.cover})` }}
+      >
+        <div className={styles.content}>
+          <h3>{currentRecipe.name}</h3>
+          <p>{currentRecipe.desc}</p>
+          <div className={styles.heat}>
+            🔥 热度: {currentRecipe.heat}/10
+          </div>
+        </div>
+      </div>
 
-.prev {
-  left: 16px;
-}
+      {/* 左右控制按钮 */}
+      <button className={`${styles.controls} ${styles.prev}`} onClick={prevSlide}>
+        ‹
+      </button>
+      <button className={`${styles.controls} ${styles.next}`} onClick={nextSlide}>
+        ›
+      </button>
 
-.next {
-  right: 16px;
-}
+      {/* 底部指示器 */}
+      <div className={styles.indicators}>
+        {hotRecipes.map((_, index) => (
+          <span
+            key={index}
+            className={`${styles.indicator} ${index === currentIndex ? styles.active : ''}`}
+            onClick={() => goToSlide(index)}
+            aria-label={`跳转到第 ${index + 1} 张`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-/* 指示器（小圆点） */
-.indicators {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.indicator {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ccc;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.indicator.active {
-  background: #1890ff;
-}
+export default HotRecipeCarousel;
