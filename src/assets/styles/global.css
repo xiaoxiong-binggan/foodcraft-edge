@@ -1,1 +1,145 @@
 
+/* src/assets/styles/global.css */
+
+/* 重置样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 
+               'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 导航链接悬停效果 */
+.nav-link:hover {
+  background-color: rgba(255, 107, 53, 0.1);
+  color: #ff6b35 !important;
+}
+
+/* 按钮基础样式 */
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* 链接基础样式 */
+a {
+  color: #ff6b35;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #ff8c5a;
+}
+
+/* 卡片基础样式 */
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 表单样式 */
+input, textarea, select {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 100%;
+  transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.1);
+}
+
+/* 主按钮样式 */
+.primary-button {
+  background: #ff6b35;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.primary-button:hover {
+  background: #ff8c5a;
+}
+
+/* 次要按钮样式 */
+.secondary-button {
+  background: #f8f9fa;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.secondary-button:hover {
+  background: #e9ecef;
+  border-color: #ccc;
+}
+
+/* 边缘计算主题色 */
+.edge-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  background: linear-gradient(135deg, #1890ff, #52c41a);
+  color: white;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  nav > div {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
