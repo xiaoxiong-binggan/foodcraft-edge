@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './HotRecipeCarousel.module.css';
 import { hotRecipes } from '@/utils/mockData';
-import { Link } from 'react-router-dom';
 
 const HotRecipeCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,16 +41,16 @@ const HotRecipeCarousel: React.FC = () => {
           <h3>{currentRecipe.name}</h3>
           <p>{currentRecipe.desc}</p>
           <div className={styles.heat}>
-            🔥 热度: {currentRecipe.heat}/10
+            🔥 热度: {currentRecipe.heat.toFixed(1)}/10
           </div>
         </div>
       </div>
 
       {/* 左右控制按钮 */}
-      <button className={`${styles.controls} ${styles.prev}`} onClick={prevSlide}>
+      <button className={`${styles.controls} ${styles.prev}`} onClick={prevSlide} aria-label="上一张">
         ‹
       </button>
-      <button className={`${styles.controls} ${styles.next}`} onClick={nextSlide}>
+      <button className={`${styles.controls} ${styles.next}`} onClick={nextSlide} aria-label="下一张">
         ›
       </button>
 
