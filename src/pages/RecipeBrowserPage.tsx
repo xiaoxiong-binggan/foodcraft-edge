@@ -1,25 +1,23 @@
-import React from 'react'
-import { Card, Typography } from 'antd'
-import { RocketOutlined } from '@ant-design/icons'
-
-const { Title, Paragraph } = Typography
+// src/pages/RecipeBrowserPage.tsx
+import React from 'react';
+import styles from './RecipeBrowserPage.module.css';
 
 const RecipeBrowserPage: React.FC = () => {
   return (
-    <div style={{ padding: 24 }}>
-      <Card>
-        <Title level={2}>
-          <RocketOutlined /> 边缘菜谱速查助手
-        </Title>
-        <Paragraph>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h2 className={styles.title}>
+          🚀 边缘菜谱速查助手
+        </h2>
+        <p className={styles.mainText}>
           正在开发中... 敬请期待！
-        </Paragraph>
-        <Paragraph type="secondary">
+        </p>
+        <p className={styles.secondary}>
           功能：离线可用的菜谱浏览器
-        </Paragraph>
-      </Card>
+        </p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default RecipeBrowserPage
+export default RecipeBrowserPage;
