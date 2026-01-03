@@ -1,0 +1,39 @@
+.recipeListPage {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+
+.backBtn {
+  text-decoration: none;
+  color: #1890ff;
+  font-weight: 500;
+  padding: 6px 12px;
+  border: 1px solid #1890ff;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.backBtn:hover {
+  background: #1890ff;
+  color: white;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
