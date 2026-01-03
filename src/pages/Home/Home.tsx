@@ -24,6 +24,7 @@ const Home: React.FC = () => {
           <div className={styles.btnGroup}>
             <Link to="/ai-video" className={styles.btn}>生成AI菜谱视频</Link>
             <Link to="/translate" className={styles.btn}>边缘实时翻译演示</Link>
+            <Link to="/publish" className={styles.btn}>发布菜谱</Link> {/* 新增：发布菜谱按钮 */}
             <Link to="/user" className={styles.btn}>个人中心</Link>
           </div>
         </div>
