@@ -1,14 +1,13 @@
+// src/pages/Home/Home.tsx（你已提供，仅确认导入正确）
 import React from 'react';
 import styles from './Home.module.css';
 import EdgeStatus from '@/components/EdgeStatus/EdgeStatus';
 import OfflineTip from '@/components/OfflineTip/OfflineTip';
 import RecipeCard from '@/components/Common/RecipeCard';
-// 新增：导入热门菜谱轮播组件
 import HotRecipeCarousel from '@/components/HotRecipeCarousel';
-import { mockRecipes } from '@/utils/mockData';
+import { mockRecipes } from '@/utils/mockData'; // ✅ 确保来自修正后的 mockData
 import { Link } from 'react-router-dom';
 
-// 首页（边缘加速展示）
 const Home: React.FC = () => {
   return (
     <div className={styles.homeContainer}>
@@ -26,12 +25,11 @@ const Home: React.FC = () => {
           <div className={styles.btnGroup}>
             <Link to="/ai-video" className={styles.btn}>生成AI菜谱视频</Link>
             <Link to="/translate" className={styles.btn}>边缘实时翻译演示</Link>
-            <Link to="/publish" className={styles.btn}>发布菜谱</Link> {/* 新增：发布菜谱按钮 */}
+            <Link to="/publish" className={styles.btn}>发布菜谱</Link>
             <Link to="/user" className={styles.btn}>个人中心</Link>
           </div>
         </div>
 
-        {/* 新增：热门菜谱轮播图（放在banner下方、普通菜谱列表上方） */}
         <HotRecipeCarousel />
 
         <div className={styles.recipeList}>
