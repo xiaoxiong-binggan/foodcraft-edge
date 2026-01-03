@@ -3,6 +3,8 @@ import styles from './Home.module.css';
 import EdgeStatus from '@/components/EdgeStatus/EdgeStatus';
 import OfflineTip from '@/components/OfflineTip/OfflineTip';
 import RecipeCard from '@/components/Common/RecipeCard';
+// 新增：导入热门菜谱轮播组件
+import HotRecipeCarousel from '@/components/HotRecipeCarousel';
 import { mockRecipes } from '@/utils/mockData';
 import { Link } from 'react-router-dom';
 
@@ -28,6 +30,10 @@ const Home: React.FC = () => {
             <Link to="/user" className={styles.btn}>个人中心</Link>
           </div>
         </div>
+
+        {/* 新增：热门菜谱轮播图（放在banner下方、普通菜谱列表上方） */}
+        <HotRecipeCarousel />
+
         <div className={styles.recipeList}>
           <h3 className={styles.listTitle}>边缘缓存热门菜谱（离线可看）</h3>
           <div className={styles.cardList}>
