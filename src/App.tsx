@@ -1,21 +1,21 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+// 移除 import React from 'react'（不再需要）
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // 导入所有页面组件
-import Home from './pages/Home/Home'
-import PublishRecipe from './pages/PublishRecipe/PublishRecipe'
-import RecipeList from './pages/RecipeList/RecipeList'
-import AIVideoGenerator from './pages/AIVideoGenerator/AIVideoGenerator'
-import TranslateDemo from './pages/TranslateDemo/TranslateDemo'
-import UserCenter from './pages/UserCenter/UserCenter'
-import RecipeDetail from './pages/RecipeDetail/RecipeDetail'
-import OfflineMode from './pages/OfflineMode/OfflineMode'
+import Home from './pages/Home/Home';
+import PublishRecipe from './pages/PublishRecipe/PublishRecipe';
+import RecipeList from './pages/RecipeList/RecipeList';
+import AIVideoGenerator from './pages/AIVideoGenerator/AIVideoGenerator';
+import TranslateDemo from './pages/TranslateDemo/TranslateDemo';
+import UserCenter from './pages/UserCenter/UserCenter';
+import RecipeDetail from './pages/RecipeDetail/RecipeDetail';
+import OfflineMode from './pages/OfflineMode/OfflineMode';
 
 // 导入公共组件
-import EdgeStatus from './components/EdgeStatus/EdgeStatus'
+import EdgeStatus from './components/EdgeStatus/EdgeStatus';
 
 // 导入全局样式
-import './assets/styles/global.css'
+import './assets/styles/global.css';
 
 function App() {
   return (
@@ -228,7 +228,7 @@ function App() {
         </div>
       </footer>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
